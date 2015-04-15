@@ -4,13 +4,17 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class RandomGenerator {
+    /*
+    *
+    *@ author Evan Chin
+    */
 
     public static void main(String[] args) {
 
         double average = 0.0;
         int sum = 0;
         int max = 0;
-
+        int min = 0;
         //TODO: Create a Scanner object to read keyboard input.
         Scanner scanner = new Scanner(System.in);
 
@@ -27,28 +31,28 @@ public class RandomGenerator {
         System.out.println("Random Numbers: ");
 
         //TODO: Generate random integers of the desired length and bound.
-        int min = lowerBound;
         for (int i = 0; i < count; i++) {
             Random random = new Random();
             int num = random.nextInt((upperBound - lowerBound) + 1) + lowerBound;
             System.out.println(num);
+
             average += num;
             sum += num;
-            if (max < num) {
+           
+            if (num > max) {
                 max = num;
             }
-            else if (num < lowerBound) {
-               lowerBound = num;
+            if (num < min) {
+                min = num;
+                }
             }
-        }
         //TODO: Print the average, max, min, count, and sum of the integers.
         average = average / count;
-        
+
         System.out.println("The average of all the integers listed is: " + average);
         System.out.println("The maximum of all the integers listed is: " + max);
         System.out.println("The minimum of all the integers listed is: " + min);
         System.out.println("The number of integers listed is: " + count);
         System.out.println("The sum of all the integers listed is: " + sum);
     }
-    }
-
+}
